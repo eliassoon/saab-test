@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Data" targetNamespace="http://tempuri.org/Data.xsd" xmlns:mstns="http://tempuri.org/Data.xsd" xmlns="http://tempuri.org/Data.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Data" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Data" msprop:Generator_UserDSName="Data">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Bookings" msprop:Generator_TableClassName="BookingsDataTable" msprop:Generator_TableVarName="tableBookings" msprop:Generator_TablePropName="Bookings" msprop:Generator_RowDeletingName="BookingsRowDeleting" msprop:Generator_RowChangingName="BookingsRowChanging" msprop:Generator_RowEvHandlerName="BookingsRowChangeEventHandler" msprop:Generator_RowDeletedName="BookingsRowDeleted" msprop:Generator_UserTableName="Bookings" msprop:Generator_RowChangedName="BookingsRowChanged" msprop:Generator_RowEvArgName="BookingsRowChangeEvent" msprop:Generator_RowClassName="BookingsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BookingId" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="1" msprop:Generator_ColumnVarNameInTable="columnBookingId" msprop:Generator_ColumnPropNameInRow="BookingId" msprop:Generator_ColumnPropNameInTable="BookingIdColumn" msprop:Generator_UserColumnName="BookingId" type="xs:int" />
+              <xs:element name="SocialSecurity" msprop:Generator_ColumnVarNameInTable="columnSocialSecurity" msprop:Generator_ColumnPropNameInRow="SocialSecurity" msprop:Generator_ColumnPropNameInTable="SocialSecurityColumn" msprop:Generator_UserColumnName="SocialSecurity" type="xs:int" minOccurs="0" />
+              <xs:element name="CarModel" msprop:Generator_ColumnVarNameInTable="columnCarModel" msprop:Generator_ColumnPropNameInRow="CarModel" msprop:Generator_ColumnPropNameInTable="CarModelColumn" msprop:Generator_UserColumnName="CarModel" type="xs:string" minOccurs="0" />
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Time" msprop:Generator_ColumnVarNameInTable="columnTime" msprop:Generator_ColumnPropNameInRow="Time" msprop:Generator_ColumnPropNameInTable="TimeColumn" msprop:Generator_UserColumnName="Time" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="KilometersStart" msprop:Generator_ColumnVarNameInTable="columnKilometersStart" msprop:Generator_ColumnPropNameInRow="KilometersStart" msprop:Generator_ColumnPropNameInTable="KilometersStartColumn" msprop:Generator_UserColumnName="KilometersStart" type="xs:int" minOccurs="0" />
+              <xs:element name="Returned" msprop:Generator_ColumnVarNameInTable="columnReturned" msprop:Generator_ColumnPropNameInRow="Returned" msprop:Generator_ColumnPropNameInTable="ReturnedColumn" msprop:Generator_UserColumnName="Returned" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Cars" msprop:Generator_TableClassName="CarsDataTable" msprop:Generator_TableVarName="tableCars" msprop:Generator_TablePropName="Cars" msprop:Generator_RowDeletingName="CarsRowDeleting" msprop:Generator_RowChangingName="CarsRowChanging" msprop:Generator_RowEvHandlerName="CarsRowChangeEventHandler" msprop:Generator_RowDeletedName="CarsRowDeleted" msprop:Generator_UserTableName="Cars" msprop:Generator_RowChangedName="CarsRowChanged" msprop:Generator_RowEvArgName="CarsRowChangeEvent" msprop:Generator_RowClassName="CarsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="LicensePlate" msprop:Generator_ColumnVarNameInTable="columnLicensePlate" msprop:Generator_ColumnPropNameInRow="LicensePlate" msprop:Generator_ColumnPropNameInTable="LicensePlateColumn" msprop:Generator_UserColumnName="LicensePlate" type="xs:string" />
+              <xs:element name="Model" msprop:Generator_ColumnVarNameInTable="columnModel" msprop:Generator_ColumnPropNameInRow="Model" msprop:Generator_ColumnPropNameInTable="ModelColumn" msprop:Generator_UserColumnName="Model" type="xs:string" minOccurs="0" />
+              <xs:element name="Kilometers" msprop:Generator_ColumnVarNameInTable="columnKilometers" msprop:Generator_ColumnPropNameInRow="Kilometers" msprop:Generator_ColumnPropNameInTable="KilometersColumn" msprop:Generator_UserColumnName="Kilometers" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Receipts" msprop:Generator_TableClassName="ReceiptsDataTable" msprop:Generator_TableVarName="tableReceipts" msprop:Generator_TablePropName="Receipts" msprop:Generator_RowDeletingName="ReceiptsRowDeleting" msprop:Generator_RowChangingName="ReceiptsRowChanging" msprop:Generator_RowEvHandlerName="ReceiptsRowChangeEventHandler" msprop:Generator_RowDeletedName="ReceiptsRowDeleted" msprop:Generator_UserTableName="Receipts" msprop:Generator_RowChangedName="ReceiptsRowChanged" msprop:Generator_RowEvArgName="ReceiptsRowChangeEvent" msprop:Generator_RowClassName="ReceiptsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BookingId" msprop:Generator_ColumnVarNameInTable="columnBookingId" msprop:Generator_ColumnPropNameInRow="BookingId" msprop:Generator_ColumnPropNameInTable="BookingIdColumn" msprop:Generator_UserColumnName="BookingId" type="xs:int" />
+              <xs:element name="DateTime" msprop:Generator_ColumnVarNameInTable="columnDateTime" msprop:Generator_ColumnPropNameInRow="DateTime" msprop:Generator_ColumnPropNameInTable="DateTimeColumn" msprop:Generator_UserColumnName="DateTime" type="xs:string" minOccurs="0" />
+              <xs:element name="KilometersDriven" msprop:Generator_ColumnVarNameInTable="columnKilometersDriven" msprop:Generator_ColumnPropNameInRow="KilometersDriven" msprop:Generator_ColumnPropNameInTable="KilometersDrivenColumn" msprop:Generator_UserColumnName="KilometersDriven" type="xs:string" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="BookingsKey" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Bookings" />
+      <xs:field xpath="mstns:BookingId" />
+    </xs:unique>
+    <xs:unique name="Id" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Cars" />
+      <xs:field xpath="mstns:LicensePlate" />
+    </xs:unique>
+    <xs:unique name="ReceiptsKey" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Receipts" />
+      <xs:field xpath="mstns:BookingId" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Bookings_Cars" msdata:parent="Bookings" msdata:child="Cars" msdata:parentkey="CarModel" msdata:childkey="LicensePlate" msprop:Generator_UserChildTable="Cars" msprop:Generator_ChildPropName="GetCarsRows" msprop:Generator_UserRelationName="Bookings_Cars" msprop:Generator_ParentPropName="BookingsRow" msprop:Generator_RelationVarName="relationBookings_Cars" msprop:Generator_UserParentTable="Bookings" />
+      <msdata:Relationship name="Bookings_Receipts" msdata:parent="Bookings" msdata:child="Receipts" msdata:parentkey="BookingId" msdata:childkey="BookingId" msprop:Generator_UserChildTable="Receipts" msprop:Generator_ChildPropName="GetReceiptsRows" msprop:Generator_UserRelationName="Bookings_Receipts" msprop:Generator_ParentPropName="BookingsRow" msprop:Generator_RelationVarName="relationBookings_Receipts" msprop:Generator_UserParentTable="Bookings" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
