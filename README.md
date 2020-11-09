@@ -25,7 +25,7 @@ Set the connection string
   Go to Settings.settings
 
 &ensp;&ensp;  iv.    
-  Insert Name as 'connectionString', Type as (Connection String), Scope as Application and Value as Connection String of Database.
+  Insert Name as 'connString', Type as (Connection String), Scope as Application and Value as Connection String of Database.
   
   ## **Author**
 
