@@ -27,7 +27,7 @@ namespace CarRental.Model
             {
                 if (connection == null)
                 {
-                    throw new Exception("Connection String is Null. Set the value of Connection String in MovieCatalog->Properties-?Settings.settings");
+                    throw new Exception("Connection String is Null. Set the value of Connection String in CarRental->Properties-?Settings.settings");
                 }
 
                 SqlCommand query = new SqlCommand("SELECT * from Bookings", connection);
@@ -59,7 +59,7 @@ namespace CarRental.Model
             {
                 if (connection == null)
                 {
-                    throw new Exception("Connection string is null or is not working properly.");
+                    throw new Exception("Connection String is Null. Set the value of Connection String in CarRental->Properties-?Settings.settings");
                 } else if (booking == null){
                     throw new Exception("The passed argument is null");
                 }
@@ -85,7 +85,7 @@ namespace CarRental.Model
             {
                 if(connection == null)
                 {
-                    throw new Exception("Connection String is Null. Set the value of Connection String in MovieCatalog->Properties-?Settings.settings");
+                    throw new Exception("Connection String is Null. Set the value of Connection String in CarRental->Properties-?Settings.settings");
                 }
 
                 SqlCommand query = new SqlCommand("DELETE FROM BOOKINGS WHERE BookingID = @pBookingId", connection);

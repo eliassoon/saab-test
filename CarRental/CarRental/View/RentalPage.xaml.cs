@@ -62,6 +62,13 @@ namespace CarRental.View
                 booking.StartKilometers = 0;
 
                 BookingsVM.addBookingToRepo(booking);
+                MessageBox.Show("Din bokning har blivit godkänd");
+
+                SocialSecurity_TBox.Text = "";
+                CarType_CBox.SelectedItem = null;
+                DatePicker_Start.SelectedDate = null;
+
+
             }
 
             

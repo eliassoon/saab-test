@@ -75,8 +75,6 @@ namespace CarRental.View
                 CarType_Txt.Content = selected.CarType;
                 DateOfRent_Txt.Content = selected.StartDate;
             }
-            
-
         }
     }
 }

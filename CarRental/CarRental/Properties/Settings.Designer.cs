@@ -26,7 +26,7 @@ namespace CarRental.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MARCUS-PC;Initial Catalog=saabDb;Integrated Security=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MARCUS-PC;Initial Catalog=SaabRentals;Integrated Security=True")]
         public string connString {
             get {
                 return ((string)(this["connString"]));

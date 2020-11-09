@@ -50,17 +50,7 @@ namespace CarRental.ViewModel
 
         public List<string> getAllActiveBookings()
         {
-            List<string> active = new List<string>();
-
-
-            // This is not an effective search for active bookings at all
-            // Should change to a query
-            foreach(var booking in BookingsRepository.bookingsRepository)
-            {
-                active.Add(booking.Id.ToString());
-            }
-
-            return active;
+            return (BookingsRepository.bookingsRepository.Select(booking => booking.Id.ToString())).ToList();
         }
 
         public double calculatePrice(Booking selected, DateTime dateOfReturn, string kilometersDriven)
