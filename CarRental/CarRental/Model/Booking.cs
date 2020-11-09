@@ -19,5 +19,7 @@ namespace CarRental.Model
 
         public int StartKilometers { get; set; }
 
+        public bool Returned { get; set; }
+
     }
 }

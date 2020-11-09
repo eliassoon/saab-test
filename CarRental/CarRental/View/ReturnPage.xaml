@@ -6,106 +6,97 @@
       xmlns:local="clr-namespace:CarRental.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ReturnPage"
-      Background="White">
+      Title="ReturnPage">
 
-    <Grid>
+    <Grid Background="#FFDADADA">
+        <Border MinWidth="400" Background="White" VerticalAlignment="Center" Padding="20" CornerRadius="10" MaxWidth="800" Margin="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="0" Color="LightGray"/>
+            </Border.Effect>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Height="50">
+                    
+                    <Button Content="Hyr bil"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Width="75"
+                    Margin="10,0,0,0" Click="rentBtn_Click"/>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+                    <Button Content="Återlämna"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Width="75"
+                    Margin="10,0,0,0" Click="returnBtn_Click"/>
 
-        <Button Content="Hyr bil"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Center" 
-                Width="75"
-                Grid.Row="0"
-                Grid.Column="0" Margin="10,0,0,0" Click="rentBtn_Click"/>
+                </StackPanel>
 
-        <Button Content="Återlämna"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Center" 
-                Width="75"
-                Grid.Row="0"
-                Grid.Column="1" Margin="10,0,0,0" Click="returnBtn_Click"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-        <Label Grid.Row="1" Grid.Column="0" Content="Bokningar" HorizontalAlignment="Center" Margin="5,0,0,0"/>
-        
-        <ListView Grid.Row="2" Grid.Column="0" Height="Auto" Margin="5,0,0,5" Grid.RowSpan="7">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+                    <StackPanel Grid.Column="0">
+                        <ListView x:Name="ActiveBookings" Padding="10,0,10,0">
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Aktiva bokningar" Width="Auto"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
 
-        <Label 
-            Grid.Row="1" 
-            Grid.Column="1" 
-            Content="Personnummer" 
-            HorizontalAlignment="Left"  
-            VerticalAlignment="Bottom"/>
-        <TextBox 
-            Grid.Row="2" 
-            Grid.Column="1" 
-            HorizontalAlignment="Left" 
-            Height="23" 
-            TextWrapping="Wrap" 
-            VerticalAlignment="Top" 
-            Width="120" 
-            Margin="5,0,0,0" 
-            VerticalContentAlignment="Center"/>
+                    </StackPanel>
+                    
 
-        <Label 
-            Grid.Row="3" 
-            Grid.Column="1" 
-            Content="Fordonstyp" 
-            HorizontalAlignment="Left"  
-            VerticalAlignment="Bottom"/>
-        <TextBox 
-            Grid.Row="4" 
-            Grid.Column="1" 
-            HorizontalAlignment="Left" 
-            Height="23" TextWrapping="Wrap" 
-            VerticalAlignment="Top" 
-            Width="120"
-            Margin="5,0,0,0"
-            VerticalContentAlignment="Center"/>
+                    <StackPanel Grid.Column="1">
 
-        <Label 
-            Grid.Row="5" 
-            Grid.Column="1" 
-            Content="Bokningsdatum" 
-            HorizontalAlignment="Left" 
-            VerticalAlignment="Bottom"/>
-        <DatePicker 
-            Grid.Row="6" 
-            Grid.Column="1" 
-            HorizontalAlignment="Left" 
-            Margin="5,0,0,0" 
-            SelectedDateFormat="Short"/>
+                        <Label Content="Bokningsnummer:" 
+                       HorizontalAlignment="Left"  
+                       VerticalAlignment="Bottom"/>
+                        
+                        <Label Content="Personnummer:" 
+                       HorizontalAlignment="Left"  
+                       VerticalAlignment="Bottom"/>
 
-        <Button  
-            Grid.Row="7" 
-            Grid.Column="1"
-            Margin="5,15,0,0"
-            HorizontalAlignment="Left"
-            Height="25"
-            Width="90"
-            x:Name="AddBooking" 
-            Content="Boka"/>
+                        <Label Content="Fordonstyp:" 
+                        HorizontalAlignment="Left"  
+                        VerticalAlignment="Bottom"/>
 
+
+                        <Label Content="Bokningsdatum:" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom"/>
+                        <Label Content="" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Bottom"/>
+
+                        <StackPanel Orientation ="Horizontal">
+                            <Label Content="Återlämningsdatum" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
+
+                            <DatePicker x:Name="Date_Picker" 
+                            HorizontalAlignment="Left" 
+                            Margin="5,0,0,0" 
+                            SelectedDateFormat="Short"/>
+                           
+                        </StackPanel>
+                        
+
+                        <Button Grid.Column="1"
+                            Margin="5,15,0,0"
+                            HorizontalAlignment="Left"
+                            Height="25"
+                            Width="90"
+                            x:Name="AddBooking" 
+                            Content="Boka" Click="confirmReturn_Click"/>
+
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

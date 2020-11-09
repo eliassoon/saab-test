@@ -35,6 +35,15 @@ namespace CarRental.View
             InitializeComponent();
             Frame = frame;
             BookingsVM = bookingsVM;
+            PopulateBookingsList();
+        }
+
+        private void PopulateBookingsList()
+        {
+           foreach(var item in BookingsVM.GetAllActiveBookings())
+            {
+                ActiveBookings.Items.Add(item);
+            }
         }
 
         private void rentBtn_Click(object sender, RoutedEventArgs e)
@@ -45,6 +54,11 @@ namespace CarRental.View
         private void returnBtn_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(new ReturnPage(Frame, BookingsVM));
+        }
+
+        private void confirmReturn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

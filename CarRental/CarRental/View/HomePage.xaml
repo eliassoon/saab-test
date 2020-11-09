@@ -8,40 +8,42 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="HomePage">
 
-    <Grid>
+    <Grid Background="#FFDADADA">
+        <Border MinWidth="400" Background="White" VerticalAlignment="Center" Padding="20" CornerRadius="10" MaxWidth="800">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" ShadowDepth="0" Color="LightGray"/>
+            </Border.Effect>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Height="50">
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        
-        
-        <Button Content="Hyr bil"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Center" 
-                Width="75"
-                Grid.Row="0"
-                Grid.Column="0" Margin="10,0,0,0" Click="rentBtn_Click"/>
+                    <Button Content="Hyr bil"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Width="75"
+                    Margin="10,0,0,0" Click="rentBtn_Click"/>
 
-        <Button Content="Återlämna"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Center" 
-                Width="75"
-                Grid.Row="0"
-                Grid.Column="1" Margin="10,0,0,0" Click="returnBtn_Click"/>
-        
-        <Label Content="Information" 
-               HorizontalAlignment="Left"
-               Margin="10,0,0,0" 
-               VerticalAlignment="Center"
-               Grid.Row="1"
-               Grid.ColumnSpan="2" 
-               FontSize="36" 
-               FontWeight="Bold"/>
-     </Grid>
+                    <Button Content="Återlämna"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Width="75"
+                    Margin="10,0,0,0" Click="returnBtn_Click"/>
+
+                </StackPanel>
+
+                <StackPanel Grid.Column="1">
+
+                    <TextBlock Text="Välkommen" 
+                               FontSize="36"
+                               HorizontalAlignment="Left"  
+                               VerticalAlignment="Top"/>
+                    
+                    <TextBlock Text="Detta är en uthyrningsservice från SAAB" 
+                               FontSize="18"
+                               HorizontalAlignment="Left"  
+                               VerticalAlignment="Top"/>
+
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
 </Page>

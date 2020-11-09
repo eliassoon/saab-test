@@ -22,7 +22,34 @@ namespace CarRental.Model
         {
             List<Booking> listOfBookings = new List<Booking>();
 
-            return listOfBookings;
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString))
+            {
+                if (connection == null)
+                {
+                    throw new Exception("Connection String is Null. Set the value of Connection String in MovieCatalog->Properties-?Settings.settings");
+                }
+
+                SqlCommand query = new SqlCommand("SELECT * from Bookings", connection);
+                connection.Open();
+                SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query);
+                DataTable dataTable = new DataTable();
+                sqlDataAdapter.Fill(dataTable);
+
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    Booking b = new Booking();
+                    b.Id = (int)row["BookingId"];
+                    b.SocialSecurity = row["SocialSecurity"].ToString();
+                    b.CarType = row["CarType"].ToString();
+                    b.StartDate = (DateTime)row["Date"];
+                    b.StartKilometers = (int)row["StartKilometers"];
+                    b.Returned = (bool)row["Returned"];
+                   
+                    listOfBookings.Add(b);
+                }
+
+                return listOfBookings;
+            }
         }
 
         public void AddBooking(Booking booking)

@@ -1,6 +1,8 @@
 ﻿using CarRental.Model;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace CarRental.ViewModel
 {
@@ -33,6 +35,23 @@ namespace CarRental.ViewModel
             }
         }
 
+        public List<string> GetAllActiveBookings()
+        {
+            List<string> active = new List<string>();
+
+
+            // This is not an effective search for active bookings at all
+            // Should change to a query
+            foreach(var booking in BookingsRepository.bookingsRepository)
+            {
+                if (booking.Returned == false) 
+                {
+                    active.Add(booking.SocialSecurity.ToString());
+                }
+            }
+
+            return active;
+        }
 
     }
 }
