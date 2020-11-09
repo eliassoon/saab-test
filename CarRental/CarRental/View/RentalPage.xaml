@@ -50,8 +50,7 @@
                         <TextBox x:Name="SocialSecurity_TBox" 
                         HorizontalAlignment="Left" 
                         Height="23" 
-                        TextWrapping="Wrap" 
-                        VerticalAlignment="Top" 
+                        TextWrapping="Wrap"
                         Width="120" 
                         Margin="5,0,0,0" 
                         VerticalContentAlignment="Center"/>
@@ -71,7 +70,7 @@
                         HorizontalAlignment="Left" 
                         VerticalAlignment="Bottom"/>
 
-                        <DatePicker x:Name="Date_Picker" 
+                        <DatePicker x:Name="DatePicker_Start" 
                             HorizontalAlignment="Left" 
                             Margin="5,0,0,0" 
                             SelectedDateFormat="Short"/>

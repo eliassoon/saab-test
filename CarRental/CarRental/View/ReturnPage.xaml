@@ -40,10 +40,10 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Column="0">
-                        <ListView x:Name="ActiveBookings" Padding="10,0,10,0">
+                        <ListView x:Name="ActiveBookings" Padding="10,0,10,0" SelectionChanged="ActiveBookings_SelectionChanged">
                             <ListView.View>
                                 <GridView>
-                                    <GridViewColumn Header="Aktiva bokningar" Width="Auto"/>
+                                    <GridViewColumn Header="Aktiva bokningsnummer" Width="Auto"/>
                                 </GridView>
                             </ListView.View>
                         </ListView>
@@ -53,46 +53,96 @@
 
                     <StackPanel Grid.Column="1">
 
-                        <Label Content="Bokningsnummer:" 
-                       HorizontalAlignment="Left"  
-                       VerticalAlignment="Bottom"/>
-                        
-                        <Label Content="Personnummer:" 
-                       HorizontalAlignment="Left"  
-                       VerticalAlignment="Bottom"/>
+                        <StackPanel Orientation ="Horizontal">
+                            <Label Content="Bokningsnummer:" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
 
-                        <Label Content="Fordonstyp:" 
-                        HorizontalAlignment="Left"  
-                        VerticalAlignment="Bottom"/>
+                            <Label x:Name="BookingId_Txt" Content="" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
 
-
-                        <Label Content="Bokningsdatum:" 
-                        HorizontalAlignment="Left" 
-                        VerticalAlignment="Bottom"/>
-                        <Label Content="" 
-                        HorizontalAlignment="Left" 
-                        VerticalAlignment="Bottom"/>
+                        </StackPanel>
 
                         <StackPanel Orientation ="Horizontal">
+                            <Label Content="Personnummer:" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
+
+                            <Label x:Name="SocialSecurity_Txt" Content="" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation ="Horizontal">
+                            <Label Content="Bilkategori:" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
+
+                            <Label x:Name="CarType_Txt" Content="" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation ="Horizontal">
+                            <Label Content="Bokningsdatum:" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
+
+                            <Label x:Name="DateOfRent_Txt" Content="" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
+
+                        </StackPanel>
+                      
+
+                        <StackPanel Orientation ="Horizontal" Margin="0,15,0,0">
                             <Label Content="Återlämningsdatum" 
                             HorizontalAlignment="Left" 
                             VerticalAlignment="Bottom"/>
 
-                            <DatePicker x:Name="Date_Picker" 
+                            <DatePicker x:Name="DatePicker_Return" 
                             HorizontalAlignment="Left" 
                             Margin="5,0,0,0" 
                             SelectedDateFormat="Short"/>
                            
                         </StackPanel>
-                        
+
+                        <StackPanel Orientation ="Horizontal">
+                            <Label Content="Kilometer körda" 
+                                HorizontalAlignment="Left" 
+                                VerticalAlignment="Bottom"/>
+
+                            <TextBox x:Name="KilometersDrive_TBox" 
+                                HorizontalAlignment="Left" 
+                                TextWrapping="Wrap" 
+                                VerticalAlignment="center" 
+                                Width="120" 
+                                Margin="5,0,0,0"/>
+
+                        </StackPanel>
+
+                        <StackPanel Orientation ="Horizontal" Margin="0,15,0,0">
+                            <Label Content="Summa:" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
+
+                            <Label x:Name="FinalPrice" Content="" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Bottom"/>
+
+                        </StackPanel>
+
 
                         <Button Grid.Column="1"
                             Margin="5,15,0,0"
                             HorizontalAlignment="Left"
                             Height="25"
                             Width="90"
-                            x:Name="AddBooking" 
-                            Content="Boka" Click="confirmReturn_Click"/>
+                            x:Name="ReturnCar" 
+                            Content="Lämna tillbaka" Click="confirmReturn_Click"/>
 
                     </StackPanel>
                 </Grid>

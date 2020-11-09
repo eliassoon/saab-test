@@ -1,18 +1,7 @@
-﻿using CarRental.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CarRental.Model;
+using CarRental.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace CarRental.View
 {
@@ -58,6 +47,16 @@ namespace CarRental.View
 
         private void confirmReturn_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void ActiveBookings_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Booking selected = BookingsVM.FindBooking(ActiveBookings.SelectedItem.ToString());
+            BookingId_Txt.Content = selected.Id;
+            SocialSecurity_Txt.Content = selected.SocialSecurity;
+            CarType_Txt.Content = selected.CarType;
+            DateOfRent_Txt.Content = selected.StartDate;
 
         }
     }

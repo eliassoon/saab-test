@@ -50,7 +50,7 @@ namespace CarRental.View
             Booking booking = new Booking();
             booking.SocialSecurity = SocialSecurity_TBox.Text;
             booking.CarType = (string) CarType_CBox.SelectedItem;
-            booking.StartDate = Date_Picker.SelectedDate.Value;
+            booking.StartDate = DatePicker_Start.SelectedDate.Value;
             booking.StartKilometers = 0;
 
             BookingsVM.AddBookingToRepo(booking);

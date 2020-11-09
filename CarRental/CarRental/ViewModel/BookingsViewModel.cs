@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace CarRental.ViewModel
 {
@@ -46,11 +47,20 @@ namespace CarRental.ViewModel
             {
                 if (booking.Returned == false) 
                 {
-                    active.Add(booking.SocialSecurity.ToString());
+                    active.Add(booking.Id.ToString());
                 }
             }
 
             return active;
+        }
+
+        public Booking FindBooking(string id)
+        {
+            Booking booking = (from temp in Bookings
+                               where temp.Id.Equals(int.Parse(id))
+                               select temp).First();
+
+            return booking;
         }
 
     }
