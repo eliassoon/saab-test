@@ -10,7 +10,7 @@ You'll need both of these to run the application.
 The application requires a database to store the data. Follow these steps to set up the database.
 
 1.
-Run the script 'SaabRentals.sql' to create and populate the database.
+Run the script 'SaabRentals.sql' to create and populate the database. The database does however no populate as it should. Cannot figure out why right now.
 
 2.
 Set the connection string
