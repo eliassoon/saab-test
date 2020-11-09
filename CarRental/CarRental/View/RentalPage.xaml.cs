@@ -30,10 +30,9 @@ namespace CarRental.View
 
         private void LoadCarTypes()
         {
-            foreach (CarType carType in Enum.GetValues(typeof(CarType)))
-            {
-                CarType_CBox.Items.Add(carType);
-            }
+            CarType_CBox.Items.Add("Bil");
+            CarType_CBox.Items.Add("Van");
+            CarType_CBox.Items.Add("Buss");
         }
 
         private void rentBtn_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -50,7 +49,7 @@ namespace CarRental.View
         {
             Booking booking = new Booking();
             booking.SocialSecurity = SocialSecurity_TBox.Text;
-            booking.CarType = (CarType)CarType_CBox.SelectedItem;
+            booking.CarType = (string) CarType_CBox.SelectedItem;
             booking.StartDate = Date_Picker.SelectedDate.Value;
             booking.StartKilometers = 0;
 

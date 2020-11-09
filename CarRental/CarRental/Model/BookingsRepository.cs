@@ -25,7 +25,7 @@ namespace CarRental.Model
             return listOfBookings;
         }
 
-        public void addBooking(Booking booking)
+        public void AddBooking(Booking booking)
         {
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString))
             {
@@ -36,23 +36,16 @@ namespace CarRental.Model
                     throw new Exception("The passed argument is null");
                 }
 
-
-                SqlCommand query = new SqlCommand("insertBooking", connection);
+                SqlCommand query = new SqlCommand("INSERT INTO Bookings (SocialSecurity, CarType, Date) VALUES (@pSocialSecurity, @pCarType, @pDate)", connection);
                 connection.Open();
-                query.CommandType = CommandType.StoredProcedure;
-                SqlParameter param1 = new SqlParameter("pSocialSecurity", SqlDbType.VarChar);
-                SqlParameter param2 = new SqlParameter("pCarType", SqlDbType.Int);
-                SqlParameter param3 = new SqlParameter("pDate", SqlDbType.DateTime);
 
-                param1.Value = booking.SocialSecurity;
-                param2.Value = booking.CarType;
-                param3.Value = booking.StartDate;
-
-                query.Parameters.Add(param1);
-                query.Parameters.Add(param2);
-                query.Parameters.Add(param3);
+                query.CommandType = CommandType.Text;
+                query.Parameters.Add("@pSocialSecurity", SqlDbType.VarChar).Value = booking.SocialSecurity;
+                query.Parameters.Add("@pCarType", SqlDbType.VarChar).Value = booking.CarType;
+                query.Parameters.Add("@pDate", SqlDbType.DateTime).Value = booking.StartDate;
 
                 query.ExecuteNonQuery();
+
 
             }
         }

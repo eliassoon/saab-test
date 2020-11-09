@@ -29,7 +29,7 @@ namespace CarRental.ViewModel
             if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
             {
                 int newIndex = e.NewStartingIndex;
-                BookingsRepository.addBooking(Bookings[newIndex]);
+                BookingsRepository.AddBooking(Bookings[newIndex]);
             }
         }
 
