@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CarRental.Properties
+namespace SaabCarRentalService.Properties
 {
 
 
