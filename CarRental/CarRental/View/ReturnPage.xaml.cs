@@ -53,7 +53,8 @@ namespace CarRental.View
             if(DatePicker_Return.SelectedDate == null || KilometersDrive_TBox.Text == "")
             {
                 MessageBox.Show("Du behöver ange ett slutdatum och antal körda kilometer.");
-            }else
+            }
+            else
             {
                 double price = BookingsVM.calculatePrice(selected, DatePicker_Return.SelectedDate.Value, KilometersDrive_TBox.Text);
                 FinalPrice.Content =  price + "kr";
