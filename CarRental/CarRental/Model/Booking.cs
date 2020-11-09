@@ -13,6 +13,8 @@ namespace CarRental.Model
 
         public string SocialSecurity { get; set; }
 
+
+
         public string CarType { get; set; }
 
         public DateTime StartDate { get; set; }

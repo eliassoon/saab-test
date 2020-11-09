@@ -47,11 +47,20 @@ namespace CarRental.View
 
         private void confirmReturn_Click(object sender, RoutedEventArgs e)
         {
-
+            Booking selected = BookingsVM.FindBooking(ActiveBookings.SelectedItem.ToString());
+            if(DatePicker_Return.SelectedDate == null || KilometersDrive_TBox.Text == "")
+            {
+                MessageBox.Show("Du behöver ange ett slutdatum och antal körda kilometer.");
+            }else
+            {
+                FinalPrice.Content = BookingsVM.CalculatePrice(selected, DatePicker_Return.SelectedDate.Value, KilometersDrive_TBox.Text) + "kr";
+            }
         }
 
         private void ActiveBookings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ReturnBtn.IsEnabled = true;
+
             Booking selected = BookingsVM.FindBooking(ActiveBookings.SelectedItem.ToString());
             BookingId_Txt.Content = selected.Id;
             SocialSecurity_Txt.Content = selected.SocialSecurity;
