@@ -42,7 +42,7 @@
                     <StackPanel Grid.Column="0">
                         <ListView x:Name="ActiveBookings" 
                                   Padding="10,0,10,0"
-                                  SelectionChanged="ActiveBookings_SelectionChanged">
+                                  SelectionChanged="activeBookings_SelectionChanged">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Header="Aktiva bokningsnummer" Width="Auto"/>

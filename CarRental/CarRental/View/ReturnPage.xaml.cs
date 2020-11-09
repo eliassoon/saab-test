@@ -24,12 +24,14 @@ namespace CarRental.View
             InitializeComponent();
             Frame = frame;
             BookingsVM = bookingsVM;
-            PopulateBookingsList();
+            populateBookingsList();
         }
 
-        private void PopulateBookingsList()
+        private void populateBookingsList()
         {
-           foreach(var item in BookingsVM.GetAllActiveBookings())
+            // Cannot figure out why this won't run after every update that I would like
+            ActiveBookings.Items.Clear();
+            foreach (var item in BookingsVM.getAllActiveBookings())
             {
                 ActiveBookings.Items.Add(item);
             }
@@ -47,25 +49,32 @@ namespace CarRental.View
 
         private void confirmReturn_Click(object sender, RoutedEventArgs e)
         {
-            Booking selected = BookingsVM.FindBooking(ActiveBookings.SelectedItem.ToString());
+            Booking selected = BookingsVM.findBooking(ActiveBookings.SelectedItem.ToString());
             if(DatePicker_Return.SelectedDate == null || KilometersDrive_TBox.Text == "")
             {
                 MessageBox.Show("Du behöver ange ett slutdatum och antal körda kilometer.");
             }else
             {
-                FinalPrice.Content = BookingsVM.CalculatePrice(selected, DatePicker_Return.SelectedDate.Value, KilometersDrive_TBox.Text) + "kr";
+                double price = BookingsVM.calculatePrice(selected, DatePicker_Return.SelectedDate.Value, KilometersDrive_TBox.Text);
+                FinalPrice.Content =  price + "kr";
+                BookingsVM.removeBookingFromRepo(selected);
+                populateBookingsList();
             }
         }
 
-        private void ActiveBookings_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void activeBookings_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ReturnBtn.IsEnabled = true;
 
-            Booking selected = BookingsVM.FindBooking(ActiveBookings.SelectedItem.ToString());
-            BookingId_Txt.Content = selected.Id;
-            SocialSecurity_Txt.Content = selected.SocialSecurity;
-            CarType_Txt.Content = selected.CarType;
-            DateOfRent_Txt.Content = selected.StartDate;
+            if(e.AddedItems.Count != 0)
+            {
+                Booking selected = BookingsVM.findBooking(ActiveBookings.SelectedItem.ToString());
+                BookingId_Txt.Content = selected.Id;
+                SocialSecurity_Txt.Content = selected.SocialSecurity;
+                CarType_Txt.Content = selected.CarType;
+                DateOfRent_Txt.Content = selected.StartDate;
+            }
+            
 
         }
     }

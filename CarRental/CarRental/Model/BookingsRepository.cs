@@ -16,10 +16,10 @@ namespace CarRental.Model
 
         public BookingsRepository()
         {
-            bookingsRepository = GetBookingsRepo();
+            bookingsRepository = getBookingsRepo();
         }
 
-        public List<Booking> GetBookingsRepo()
+        public List<Booking> getBookingsRepo()
         {
             List<Booking> listOfBookings = new List<Booking>();
 
@@ -44,7 +44,6 @@ namespace CarRental.Model
                     b.CarType = row["CarType"].ToString();
                     b.StartDate = (DateTime)row["Date"];
                     b.StartKilometers = (int)row["StartKilometers"];
-                    b.Returned = (bool)row["Returned"];
                    
                     listOfBookings.Add(b);
                 }
@@ -53,7 +52,8 @@ namespace CarRental.Model
             }
         }
 
-        public void AddBooking(Booking booking)
+
+        public void addBooking(Booking booking)
         {
             using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString))
             {
@@ -64,15 +64,37 @@ namespace CarRental.Model
                     throw new Exception("The passed argument is null");
                 }
 
-                SqlCommand query = new SqlCommand("INSERT INTO Bookings (SocialSecurity, CarType, Date) VALUES (@pSocialSecurity, @pCarType, @pDate)", connection);
+                SqlCommand query = new SqlCommand("INSERT INTO Bookings (SocialSecurity, CarType, Date, StartKilometers) VALUES (@pSocialSecurity, @pCarType, @pDate, @pKilometers)", connection);
                 connection.Open();
 
                 query.CommandType = CommandType.Text;
-                query.Parameters.Add("@pSocialSecurity", SqlDbType.VarChar).Value = booking.SocialSecurity;
+                query.Parameters.Add("@pSocialSecurity", SqlDbType.Int).Value = booking.SocialSecurity;
                 query.Parameters.Add("@pCarType", SqlDbType.VarChar).Value = booking.CarType;
                 query.Parameters.Add("@pDate", SqlDbType.DateTime).Value = booking.StartDate;
+                query.Parameters.Add("@pKilometers", SqlDbType.Int).Value = booking.StartKilometers;
 
                 query.ExecuteNonQuery();
+                connection.Close();
+
+            }
+        }
+
+        public void deleteBooking(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(Properties.Settings.Default.connString))
+            {
+                if(connection == null)
+                {
+                    throw new Exception("Connection String is Null. Set the value of Connection String in MovieCatalog->Properties-?Settings.settings");
+                }
+
+                SqlCommand query = new SqlCommand("DELETE FROM BOOKINGS WHERE BookingID = @pBookingId", connection);
+                connection.Open();
+
+                query.CommandType = CommandType.Text;
+                query.Parameters.Add("@pBookingId", SqlDbType.Int).Value = id;
+                query.ExecuteNonQuery();
+                connection.Close();
 
             }
         }

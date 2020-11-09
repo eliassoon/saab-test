@@ -17,26 +17,38 @@ namespace CarRental.ViewModel
         {
             BookingsRepository = new BookingsRepository();
             Bookings = new ObservableCollection<Booking>(BookingsRepository.bookingsRepository);
-            Bookings.CollectionChanged += Bookings_CollectionChanged;
+            Bookings.CollectionChanged += bookings_CollectionChanged;
         }
 
-        public void AddBookingToRepo(Booking booking)
+        
+
+        private void bookings_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+            {
+                int newIndex = e.NewStartingIndex;
+                BookingsRepository.addBooking(Bookings[newIndex]);
+            }
+            else if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Remove)
+            {
+                List<Booking> tempListOfRemovedItems = e.OldItems.OfType<Booking>().ToList();
+                BookingsRepository.deleteBooking(tempListOfRemovedItems[0].Id);
+            }
+        }
+
+        public void addBookingToRepo(Booking booking)
         {
             if (booking == null)
                 throw new ArgumentNullException("Error: The argument is Null");
             Bookings.Add(booking);
         }
 
-        private void Bookings_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        public void removeBookingFromRepo(Booking booking)
         {
-            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
-            {
-                int newIndex = e.NewStartingIndex;
-                BookingsRepository.AddBooking(Bookings[newIndex]);
-            }
+            Bookings.Remove(booking);
         }
 
-        public List<string> GetAllActiveBookings()
+        public List<string> getAllActiveBookings()
         {
             List<string> active = new List<string>();
 
@@ -45,16 +57,13 @@ namespace CarRental.ViewModel
             // Should change to a query
             foreach(var booking in BookingsRepository.bookingsRepository)
             {
-                if (booking.Returned == false) 
-                {
-                    active.Add(booking.Id.ToString());
-                }
+                active.Add(booking.Id.ToString());
             }
 
             return active;
         }
 
-        public double CalculatePrice(Booking selected, DateTime dateOfReturn, string kilometersDriven)
+        public double calculatePrice(Booking selected, DateTime dateOfReturn, string kilometersDriven)
         {
 
             if (DateTime.Compare(selected.StartDate, dateOfReturn) < 0 && int.TryParse(kilometersDriven, out int kilometers))
@@ -100,7 +109,7 @@ namespace CarRental.ViewModel
             return -1;
         }
 
-        public Booking FindBooking(string id)
+        public Booking findBooking(string id)
         {
             Booking booking = (from temp in Bookings
                                where temp.Id.Equals(int.Parse(id))

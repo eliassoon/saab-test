@@ -81,7 +81,7 @@
                             Height="25"
                             Width="90"
                             x:Name="AddBooking" 
-                            Content="Boka" Click="AddBooking_Click"/>
+                            Content="Boka" Click="addBooking_Click"/>
 
                     </StackPanel>
                 </Grid>
